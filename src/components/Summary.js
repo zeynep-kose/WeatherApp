@@ -28,10 +28,10 @@ function Summary({ weather, city }) {
   const date = weather?.last_updated;
   console.log(date);
   const [a, b] = date.split(" ");
+  console.log(a);
   console.log(b);
   const dateObj = new Date(a + "T" + b + ":00");
   const day = daysOfWeek(dateObj.getDay() - 1);
-  console.log(day);
 
   return (
     <Stack

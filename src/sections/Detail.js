@@ -125,7 +125,7 @@ function Detail({ detail, city }) {
                 />
               </Box>
               <Typography>
-                <h4> {detail.forecast.forecastday[0].astro.sunrise}</h4>
+                <h4> {detail?.forecast?.forecastday[0]?.astro?.sunrise}</h4>
               </Typography>
             </Box>
             <Box
