@@ -28,23 +28,24 @@ function TopCard({ forecast }) {
     <>
       <Box
         spacing={8}
-        style={{
+        sx={{
           display: "flex",
-          justifyContent: "space-between",
+          // justifyContent: "space-between",
           width: "100%",
           flexDirection: "row",
           alignItems: "center",
-          columnGap: 10,
-          paddingTop: 28,
+          columnGap: 1,
+          paddingTop: 3,
         }}
       >
         {forecast.map((item, index) => (
-          <Card key={index} style={{ width: 130, height: 180 }}>
+          <Card key={index} style={{ width: 130, height: 160 }}>
             <CardContent
-              style={{
+              sx={{
+                width: "100%",
                 display: "flex",
                 flexDirection: "column",
-                rowGap: 12,
+                rowGap: 1,
                 alignItems: "center",
               }}
             >
@@ -52,7 +53,7 @@ function TopCard({ forecast }) {
                 {daysOfWeek[new Date(item.date).getDay()]}
               </Typography>
               <CardMedia
-                style={{ objectFit: "contain" }}
+                sx={{ objectFit: "contain" }}
                 component="img"
                 height="60"
                 width="40"

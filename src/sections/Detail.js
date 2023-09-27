@@ -20,20 +20,20 @@ function Detail({ detail, city }) {
 
   return (
     <Box>
-      <Typography sx={{ marginTop: 4, marginBottom: 2 }}>
+      <Typography sx={{ margin: 2 }}>
         <h2>Today Higlight</h2>
       </Typography>
 
       <Stack
         direction="row"
-        justifyContent="center"
+        justifyContent="space-between"
         alignItems=""
         // spacing={1}
         columnGap={6}
-        rowGap={5}
+        rowGap={2}
         flexWrap="wrap"
       >
-        <Card sx={{ width: 250, height: 200 }}>
+        <Card sx={{ width: 250, height: 150 }}>
           <CardContent
             sx={{
               padding: 0,
@@ -47,13 +47,12 @@ function Detail({ detail, city }) {
           </CardContent>
         </Card>
 
-        <Card sx={{ width: 250, height: 200 }}>
+        <Card sx={{ width: 250, height: 150 }}>
           <CardContent
             sx={{
               display: "flex",
               flexDirection: "column",
               alignItems: "baseline",
-              rowGap: 2,
             }}
           >
             <CardHeader
@@ -85,7 +84,7 @@ function Detail({ detail, city }) {
         <Card
           sx={{
             width: 250,
-            height: 200,
+            height: 150,
             display: "flex",
             flexDirection: "column",
           }}
@@ -95,7 +94,7 @@ function Detail({ detail, city }) {
               display: "flex",
               alignItems: "baseline",
               flexDirection: "column",
-              rowGap: 2.5,
+              rowGap: 1,
             }}
           >
             <CardHeader
@@ -160,7 +159,7 @@ function Detail({ detail, city }) {
         <Card
           sx={{
             width: 250,
-            height: 200,
+            height: 150,
             display: "flex",
             flexDirection: "column",
             alignItems: "baseline",
@@ -187,7 +186,7 @@ function Detail({ detail, city }) {
           </CardContent>
         </Card>
 
-        <Card sx={{ width: 250, height: 200 }}>
+        <Card sx={{ width: 250, height: 150 }}>
           <CardContent sx={{ height: "100%" }}>
             <CardHeader
               title=""
@@ -209,7 +208,7 @@ function Detail({ detail, city }) {
           </CardContent>
         </Card>
 
-        <Card sx={{ width: 250, height: 200 }}>
+        <Card sx={{ width: 250, height: 150 }}>
           <CardContent sx={{ height: "100%" }}>
             <CardHeader
               title=""

@@ -24,7 +24,7 @@ function Search({ city, setCity }) {
   console.log("theDamnErros:", formik.errors);
 
   return (
-    <Stack className="leftPart">
+    <Stack>
       <Box sx={{ width: "100%" }}>
         <form onSubmit={formik.handleSubmit}>
           <Autocomplete

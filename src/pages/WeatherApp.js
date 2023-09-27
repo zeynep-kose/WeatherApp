@@ -37,7 +37,14 @@ function WeatherApp() {
   }, [city]);
 
   return (
-    <Stack sx={{ display: "flex", flexDirection: "row", columnGap: 4 }}>
+    <Stack
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        columnGap: 4,
+        alignItems: "end",
+      }}
+    >
       <br></br>
 
       {/* left bar => section */}

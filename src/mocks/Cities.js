@@ -34,7 +34,6 @@ const CitiesData = [
   "İçel (Mersin)",
   "İstanbul",
   "İzmir",
-  "Kars",
   "Kastamonu",
   "Kayseri",
   "Kırklareli",

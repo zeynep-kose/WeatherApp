@@ -38,7 +38,7 @@ function Summary({ weather, city }) {
       sx={{
         width: "100%",
         backgroundColor: "white",
-
+        height: 520,
         paddingTop: 3,
         display: "flex",
         flexDirection: "column",
@@ -62,17 +62,19 @@ function Summary({ weather, city }) {
       <Box
         sx={{
           backgroundColor: "orange",
-
           borderRadius: "4px",
-          marginTop: "50px",
+          marginTop: "10px",
         }}
       >
         <Typography
           sx={{
-            textAlign: "center",
             fontSize: 40,
             color: "white",
             width: "100%",
+            height: 165,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           {city}
