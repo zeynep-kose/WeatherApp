@@ -38,14 +38,18 @@ function Summary({ weather, city }) {
       sx={{
         width: "100%",
         backgroundColor: "white",
-        height: "100%",
+
         paddingTop: 3,
         display: "flex",
         flexDirection: "column",
         rowGap: 1,
       }}
     >
-      <img src={weather?.condition?.icon} alt="weather-condition"></img>
+      <img
+        src={weather?.condition?.icon}
+        alt="weather-condition"
+        style={{ height: 150, width: 150, margin: "0 auto" }}
+      ></img>
       <Typography>{weather?.temp_c}°C</Typography>
       <Typography>
         {" "}
@@ -58,7 +62,7 @@ function Summary({ weather, city }) {
       <Box
         sx={{
           backgroundColor: "orange",
-          height: 200,
+
           borderRadius: "4px",
           marginTop: "50px",
         }}
@@ -68,7 +72,6 @@ function Summary({ weather, city }) {
             textAlign: "center",
             fontSize: 40,
             color: "white",
-            marginTop: 8,
             width: "100%",
           }}
         >

@@ -12,9 +12,6 @@ import {
 function App() {
   return (
     <Box className="App">
-      <Typography sx={{ marginBottom: 3, fontSize: 35 }}>
-        <b>Weather Forecast</b>
-      </Typography>
       <WeatherApp></WeatherApp>
     </Box>
   );
