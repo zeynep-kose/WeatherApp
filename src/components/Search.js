@@ -6,8 +6,8 @@ import TextField from "@material-ui/core/TextField";
 
 function Search({ city, setCity }) {
   return (
-    <Stack>
-      <Box sx={{ width: "100%" }}>
+    <Stack sx={{ height: "100%" }}>
+      <Box sx={{ width: "100%", height: "100%" }}>
         <form>
           <Autocomplete
             disablePortal

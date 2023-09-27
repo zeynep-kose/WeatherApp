@@ -18,6 +18,20 @@ import {
 function Detail({ detail, city }) {
   if (!detail) return <>Loading...</>;
 
+  const status = { 1: "Good Quality", 2: "Average", 3: "Bad Quality" };
+  const epaIndex = detail?.current?.air_quality?.["us-epa-index"];
+  const getEpa = (epaIndex) => {
+    let matchingStatus = null;
+    Object.keys(status).map((e, i) => {
+      if (epaIndex === parseInt(e)) {
+        matchingStatus = status[e];
+      }
+    });
+    return matchingStatus;
+  };
+
+  const x = getEpa(epaIndex);
+  console.log(x);
   return (
     <Box>
       <Typography sx={{ margin: 2 }}>
@@ -33,7 +47,7 @@ function Detail({ detail, city }) {
         rowGap={2}
         flexWrap="wrap"
       >
-        <Card sx={{ width: 250, height: 150 }}>
+        <Card sx={{ width: 250, height: 155 }}>
           <CardContent
             sx={{
               padding: 0,
@@ -47,7 +61,7 @@ function Detail({ detail, city }) {
           </CardContent>
         </Card>
 
-        <Card sx={{ width: 250, height: 150 }}>
+        <Card sx={{ width: 250, height: 155 }}>
           <CardContent
             sx={{
               display: "flex",
@@ -84,7 +98,7 @@ function Detail({ detail, city }) {
         <Card
           sx={{
             width: 250,
-            height: 150,
+            height: 155,
             display: "flex",
             flexDirection: "column",
           }}
@@ -159,13 +173,22 @@ function Detail({ detail, city }) {
         <Card
           sx={{
             width: 250,
-            height: 150,
+            height: 155,
             display: "flex",
             flexDirection: "column",
             alignItems: "baseline",
           }}
         >
-          <CardContent sx={{ width: "100%", height: "100% " }}>
+          <CardContent
+            sx={{
+              width: "100%",
+              height: "100% ",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "baseline",
+              rowGap: 2,
+            }}
+          >
             <CardHeader
               title=""
               subheader="Humidity"
@@ -176,9 +199,8 @@ function Detail({ detail, city }) {
                 fontSize: "40px",
                 display: "flex",
                 alignItems: "center",
-                columnGap: 1,
+
                 justifyContent: "center",
-                height: "100%",
               }}
             >
               <b>{detail?.current?.humidity}</b>%
@@ -186,8 +208,16 @@ function Detail({ detail, city }) {
           </CardContent>
         </Card>
 
-        <Card sx={{ width: 250, height: 150 }}>
-          <CardContent sx={{ height: "100%" }}>
+        <Card sx={{ width: 250, height: 155 }}>
+          <CardContent
+            sx={{
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "baseline",
+              rowGap: 0.5,
+            }}
+          >
             <CardHeader
               title=""
               subheader="Visiblity"
@@ -209,7 +239,15 @@ function Detail({ detail, city }) {
         </Card>
 
         <Card sx={{ width: 250, height: 150 }}>
-          <CardContent sx={{ height: "100%" }}>
+          <CardContent
+            sx={{
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "baseline",
+              rowGap: 0.5,
+            }}
+          >
             <CardHeader
               title=""
               subheader="Air Quality"
@@ -218,14 +256,15 @@ function Detail({ detail, city }) {
             <Typography
               sx={{
                 fontSize: 40,
-                display: "flex",
-                alignItems: "center",
-                columnGap: 1,
-                justifyContent: "center",
-                height: "100%",
+                textAlign: "start",
               }}
             >
               <b>{detail?.current?.air_quality?.co}</b>
+            </Typography>
+            <Typography
+              sx={{ color: "#8cb8fe", textAlign: "start", fontWeight: "bold" }}
+            >
+              Status:{getEpa(epaIndex)}
             </Typography>
           </CardContent>
         </Card>

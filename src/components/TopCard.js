@@ -45,7 +45,6 @@ function TopCard({ forecast }) {
                 width: "100%",
                 display: "flex",
                 flexDirection: "column",
-                rowGap: 1,
                 alignItems: "center",
               }}
             >
@@ -63,8 +62,8 @@ function TopCard({ forecast }) {
               ></CardMedia>
 
               <CardActions>
-                <span> {forecast[index]?.day?.maxtemp_c}</span>
-                <span> {forecast[index]?.day?.mintemp_c}</span>
+                {forecast[index]?.day?.maxtemp_c}
+                {forecast[index]?.day?.mintemp_c}
               </CardActions>
             </CardContent>
           </Card>
