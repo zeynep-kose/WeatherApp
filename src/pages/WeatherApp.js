@@ -23,7 +23,7 @@ function WeatherApp() {
   const getWeather = () => {
     axios
       .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=7`
+        `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&aqi=yes&q=${city}&days=7`
       )
       .then((response) => {
         console.log(response.data);

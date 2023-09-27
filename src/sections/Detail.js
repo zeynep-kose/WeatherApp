@@ -2,6 +2,7 @@ import { useState } from "react";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
 import NorthIcon from "@mui/icons-material/North";
 import UVIndexGaugeChart from "../components/UVIndex";
+import Status from "../mocks/Status";
 
 import {
   Box,
@@ -14,11 +15,7 @@ import {
   CardHeader,
 } from "@mui/material";
 
-const uvIndex = 7;
-
 function Detail({ detail, city }) {
-  const cards = [1, 2, 3, 4, 5, 6];
-  console.log("detail:", detail);
   if (!detail) return <>Loading...</>;
 
   return (
@@ -46,7 +43,7 @@ function Detail({ detail, city }) {
             }}
           >
             <CardHeader title="" subheader="UV Index" />
-            <UVIndexGaugeChart uvIndex={uvIndex} />
+            <UVIndexGaugeChart uvIndex={detail?.current?.uv} />
           </CardContent>
         </Card>
 
@@ -213,13 +210,24 @@ function Detail({ detail, city }) {
         </Card>
 
         <Card sx={{ width: 250, height: 200 }}>
-          <CardContent>
+          <CardContent sx={{ height: "100%" }}>
             <CardHeader
               title=""
               subheader="Air Quality"
               sx={{ padding: 0, textAlign: "start" }}
             />
-            <Typography></Typography>
+            <Typography
+              sx={{
+                fontSize: 40,
+                display: "flex",
+                alignItems: "center",
+                columnGap: 1,
+                justifyContent: "center",
+                height: "100%",
+              }}
+            >
+              <b>{detail?.current?.air_quality?.co}</b>
+            </Typography>
           </CardContent>
         </Card>
       </Stack>
