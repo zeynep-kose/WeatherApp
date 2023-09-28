@@ -35,8 +35,6 @@ function Detail({ detail, city }) {
     return matchingStatus;
   };
 
-  const x = getEpa(epaIndex);
-
   return (
     <Box>
       <Typography sx={{ margin: 2 }}>
@@ -47,7 +45,6 @@ function Detail({ detail, city }) {
         direction="row"
         justifyContent="space-between"
         alignItems=""
-        // spacing={1}
         columnGap={6}
         rowGap={2}
         flexWrap="wrap"

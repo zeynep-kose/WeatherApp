@@ -27,7 +27,6 @@ function TopCard({ forecast }) {
         spacing={8}
         sx={{
           display: "flex",
-          // justifyContent: "space-between",
           width: "100%",
           flexDirection: "row",
           alignItems: "center",

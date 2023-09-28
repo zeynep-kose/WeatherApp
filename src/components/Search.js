@@ -1,5 +1,4 @@
 import React from "react";
-// import * as yup from "yup";
 import CitiesData from "../mocks/Cities";
 import { Autocomplete, Stack, Box } from "@mui/material";
 import TextField from "@material-ui/core/TextField";
