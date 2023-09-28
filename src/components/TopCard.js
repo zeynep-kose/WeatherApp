@@ -31,11 +31,13 @@ function TopCard({ forecast }) {
           flexDirection: "row",
           alignItems: "center",
           columnGap: 1,
-          paddingTop: 3,
         }}
       >
         {forecast.map((item, index) => (
-          <Card key={index} style={{ width: 130, height: 150 }}>
+          <Card
+            key={index}
+            style={{ width: 122, height: 150, backgroundColor: "white" }}
+          >
             <CardContent
               sx={{
                 width: "100%",
