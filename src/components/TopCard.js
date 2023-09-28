@@ -7,11 +7,8 @@ import {
   CardMedia,
   CardActions,
 } from "@mui/material";
-// import axios from "axios";
 
 function TopCard({ forecast }) {
-  const [photos, setImages] = useState([]);
-
   const daysOfWeek = [
     "Monday",
     "Tuesday",

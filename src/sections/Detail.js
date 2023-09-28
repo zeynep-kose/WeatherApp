@@ -2,7 +2,6 @@ import { useState } from "react";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
 import NorthIcon from "@mui/icons-material/North";
 import UVIndexGaugeChart from "../components/UVIndex";
-import Status from "../mocks/Status";
 
 import {
   Box,
