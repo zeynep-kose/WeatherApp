@@ -39,7 +39,7 @@ function TopCard({ forecast }) {
         }}
       >
         {forecast.map((item, index) => (
-          <Card key={index} style={{ width: 130, height: 160 }}>
+          <Card key={index} style={{ width: 130, height: 150 }}>
             <CardContent
               sx={{
                 width: "100%",

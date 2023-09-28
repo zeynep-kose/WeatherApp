@@ -18,11 +18,17 @@ import {
 function Detail({ detail, city }) {
   if (!detail) return <>Loading...</>;
 
-  const status = { 1: "Good Quality", 2: "Average", 3: "Bad Quality" };
+  const status = {
+    1: "Good Quality",
+    2: "Moderate",
+    3: "Bad Quality",
+    4: "Bad Quality",
+    5: "Very Unhealty",
+  };
   const epaIndex = detail?.current?.air_quality?.["us-epa-index"];
   const getEpa = (epaIndex) => {
     let matchingStatus = null;
-    Object.keys(status).map((e, i) => {
+    Object.keys(status).map((e) => {
       if (epaIndex === parseInt(e)) {
         matchingStatus = status[e];
       }
@@ -31,7 +37,7 @@ function Detail({ detail, city }) {
   };
 
   const x = getEpa(epaIndex);
-  console.log(x);
+
   return (
     <Box>
       <Typography sx={{ margin: 2 }}>
