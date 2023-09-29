@@ -5,13 +5,16 @@
 } */
 .App {
   text-align: center;
-  background-color: rgb(250, 250, 250);
+  /* background-color: rgb(250, 250, 250); */
+  background-color: red;
+  height: 100vh;
+  /* overflow: hidden; */
 }
 /* .css-etx0v6-MuiAutocomplete-root .MuiFormControl-fullWidth {
   width: 70%;
 } */
-.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-1vacchr-MuiAutocomplete-root
-  .MuiAutocomplete-inputRoot.MuiInput-underline:before {
+.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-1vacchr-MuiAutocomplete-root,
+.MuiAutocomplete-inputRoot.MuiInput-underline:before {
   content: none;
 }
 
@@ -25,4 +28,27 @@
 }
 .css-1mn92i9-MuiCardContent-root {
   padding: 0;
+}
+
+.MuiAutocomplete-hasPopupIcon.css-yq1bj6-MuiAutocomplete-root
+  .MuiAutocomplete-inputRoot,
+.MuiAutocomplete-hasClearIcon.css-yq1bj6-MuiAutocomplete-root
+  .MuiAutocomplete-inputRoot
+  .css-yq1bj6-MuiAutocomplete-root
+  .MuiInput-root
+  .MuiInput-input {
+  width: 70%;
+  margin: 0 auto;
+  background-color: pink;
+}
+.MuiAutocomplete-hasPopupIcon.css-yq1bj6-MuiAutocomplete-root
+  .MuiAutocomplete-inputRoot,
+.MuiAutocomplete-hasClearIcon.css-yq1bj6-MuiAutocomplete-root
+  .MuiAutocomplete-inputRoot {
+  padding-right: 0;
+  padding: 5px;
+}
+
+.css-15alm28-MuiStack-root {
+  height: 100%;
 }

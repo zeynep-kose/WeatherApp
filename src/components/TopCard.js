@@ -36,7 +36,14 @@ function TopCard({ forecast }) {
         {forecast.map((item, index) => (
           <Card
             key={index}
-            style={{ width: 122, height: 150, backgroundColor: "white" }}
+            style={{
+              width: 120,
+              height: 150,
+              backgroundColor: "white",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
             <CardContent
               sx={{
@@ -46,7 +53,7 @@ function TopCard({ forecast }) {
                 alignItems: "center",
               }}
             >
-              <Typography variant="h6">
+              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                 {daysOfWeek[new Date(item.date).getDay()]}
               </Typography>
               <CardMedia
@@ -60,8 +67,13 @@ function TopCard({ forecast }) {
               ></CardMedia>
 
               <CardActions>
-                {forecast[index]?.day?.maxtemp_c}
-                {forecast[index]?.day?.mintemp_c}
+                <span style={{ fontSize: "15px", fontWeight: "bold" }}>
+                  {" "}
+                  {forecast[index]?.day?.maxtemp_c}°
+                </span>
+                <span style={{ color: "grey", fontSize: 15 }}>
+                  {forecast[index]?.day?.mintemp_c}°
+                </span>
               </CardActions>
             </CardContent>
           </Card>

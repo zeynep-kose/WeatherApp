@@ -41,7 +41,7 @@ function WeatherApp() {
       sx={{
         display: "flex",
         flexDirection: "row",
-        // columnGap: 4,
+        columnGap: 3,
         padding: 0,
         height: "100%",
       }}
@@ -55,10 +55,18 @@ function WeatherApp() {
         }}
       >
         {/* component */}
-        <Search city={city} setCity={setCity} />
+        {/* <Search city={city} setCity={setCity} /> */}
         <Summary weather={weather?.current} city={city} setCity={setCity} />
       </Box>
-      <Box sx={{}}>
+      <Box
+        sx={{
+          height: "100%",
+          width: "70%",
+          display: "flex",
+          alignItems: "baseline",
+          flexDirection: "column",
+        }}
+      >
         <TopCard forecast={weather?.forecast?.forecastday} />
         <Detail detail={weather} city={city} />
       </Box>

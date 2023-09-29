@@ -37,19 +37,24 @@ function Summary({ weather, city, setCity }) {
   return (
     <Stack
       sx={{
-        marginTop: 3,
         backgroundColor: "white",
         display: "flex",
         flexDirection: "column",
         // background: "pink",
-        width: 300,
+        width: "100%",
         height: "100%",
       }}
     >
+      <Search city={city} setCity={setCity} />
       <img
         src={weather?.condition?.icon}
         alt="weather-condition"
-        style={{ margin: "0 auto", height: 150, width: 150 }}
+        style={{
+          margin: "0 auto",
+          height: 150,
+          width: 150,
+          paddingTop: "30px",
+        }}
       ></img>
       <Box
         sx={{
@@ -68,10 +73,12 @@ function Summary({ weather, city, setCity }) {
         <Typography
           variant="h5"
           sx={{
+            width: "90%",
             display: "flex",
             alignItems: "center",
             columnGap: 1,
             boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+            padding: "0 5px 10px 5px",
           }}
         >
           {day}, <span style={{ color: "grey", fontSize: 20 }}>{b}</span>
@@ -88,21 +95,21 @@ function Summary({ weather, city, setCity }) {
       </Box>
       <Box
         sx={{
-          backgroundColor: "orange",
+          // backgroundColor: "orange",
           borderRadius: "4px",
+          height: "150px",
         }}
       >
-        <Typography
-          sx={{
-            fontSize: 40,
-            color: "white",
-            width: "100%",
-            height: 165,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        {/* <CardMedia
+          component="img"
+          alt="img"
+          height="140 "
+          width="140"
+          // src="../images/241313.jpg"
+          image="../images/Harry_Potter_character_poster.jpg"
+        ></CardMedia> */}
+        <img src="/images/Harry_Potter_character_poster.jpg" alt="saane"></img>
+        <Typography variant="h5" sx={{}}>
           {city}
         </Typography>
       </Box>
