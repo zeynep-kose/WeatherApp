@@ -4,6 +4,7 @@ import TopCard from "../components/TopCard";
 import Summary from "../components/Summary";
 import Detail from "../sections/Detail";
 import axios from "axios";
+import { useTheme } from "@mui/material/styles";
 import {
   Card,
   Box,
@@ -16,6 +17,7 @@ import {
 const API_KEY = "3451b70b70534de7ad9123910232009";
 
 function WeatherApp() {
+  const theme = useTheme();
   const [city, setCity] = useState("Bursa"); //global state
 
   const [weather, setWeather] = useState();
@@ -38,12 +40,17 @@ function WeatherApp() {
 
   return (
     <Stack
+      className="main__container"
       sx={{
         display: "flex",
         flexDirection: "row",
-        columnGap: 3,
+        columnGap: 4,
         padding: 0,
         height: "100%",
+        width: "100%",
+        [theme.breakpoints.up("xl")]: {
+          columnGap: 8,
+        },
       }}
     >
       {/* left bar => section */}
@@ -60,8 +67,9 @@ function WeatherApp() {
       </Box>
       <Box
         sx={{
+          width: "100%",
           height: "100%",
-          width: "70%",
+          // width: "80%",
           display: "flex",
           alignItems: "baseline",
           flexDirection: "column",

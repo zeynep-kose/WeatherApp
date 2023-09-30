@@ -9,7 +9,10 @@ import {
   CardMedia,
   Stack,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+
 function Summary({ weather, city, setCity }) {
+  const theme = useTheme();
   if (!weather) return <>Loading...</>;
   // const temp= weather.main.temp
   // const temp= Object.keys(weather).map((item)=>{return(item.main.temp)})
@@ -36,6 +39,7 @@ function Summary({ weather, city, setCity }) {
 
   return (
     <Stack
+      className="summary__cont"
       sx={{
         backgroundColor: "white",
         display: "flex",
@@ -46,26 +50,50 @@ function Summary({ weather, city, setCity }) {
       }}
     >
       <Search city={city} setCity={setCity} />
-      <img
-        src={weather?.condition?.icon}
-        alt="weather-condition"
-        style={{
-          margin: "0 auto",
-          height: 150,
-          width: 150,
-          paddingTop: "30px",
-        }}
-      ></img>
       <Box
+        className="icon__summary"
+        sx={{
+          [theme.breakpoints.up("xl")]: {
+            margin: "4rem auto",
+
+            height: 180,
+            width: 180,
+          },
+        }}
+      >
+        <img
+          src={weather?.condition?.icon}
+          alt="weather-condition"
+          style={{
+            margin: "0 auto",
+            height: 150,
+            width: 150,
+            paddingTop: "30px",
+          }}
+        ></img>
+      </Box>
+      <Box
+        className="summary__middle"
         sx={{
           display: "flex",
           flexDirection: "column",
           paddingLeft: 3,
           rowGap: 3,
+          [theme.breakpoints.up("xl")]: {
+            marginTop: 3,
+            rowGap: 3,
+          },
         }}
       >
         <Typography
-          sx={{ textAlign: "start", fontSize: 55, fontWeight: "bold" }}
+          sx={{
+            textAlign: "start",
+            fontSize: 55,
+            fontWeight: "bold",
+            [theme.breakpoints.up("xl")]: {
+              fontSize: 65,
+            },
+          }}
         >
           {weather?.temp_c}°C
         </Typography>
@@ -84,13 +112,22 @@ function Summary({ weather, city, setCity }) {
           {day}, <span style={{ color: "grey", fontSize: 20 }}>{b}</span>
         </Typography>
 
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box sx={{ display: "flex", alignItems: "center", marginTop: "2rem" }}>
           <img
             style={{ height: 40 }}
             src={weather?.condition?.icon}
             alt="current-state"
           ></img>
-          <Typography>{weather?.condition?.text}</Typography>
+          <Typography
+            className="condition__text"
+            sx={{
+              [theme.breakpoints.up("xl")]: {
+                fontWeight: "bold",
+              },
+            }}
+          >
+            {weather?.condition?.text}
+          </Typography>
         </Box>
       </Box>
       <Box
@@ -98,6 +135,7 @@ function Summary({ weather, city, setCity }) {
           // backgroundColor: "orange",
           borderRadius: "4px",
           height: "150px",
+          marginTop: "1rem",
         }}
       >
         {/* <CardMedia
@@ -108,7 +146,7 @@ function Summary({ weather, city, setCity }) {
           // src="../images/241313.jpg"
           image="../images/Harry_Potter_character_poster.jpg"
         ></CardMedia> */}
-        <img src="/images/Harry_Potter_character_poster.jpg" alt="saane"></img>
+        {/* <img src="/images/Harry_Potter_character_poster.jpg" alt="saane"></img> */}
         <Typography variant="h5" sx={{}}>
           {city}
         </Typography>

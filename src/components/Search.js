@@ -27,8 +27,8 @@ function Search({ city, setCity }) {
             margin: "0 auto",
             borderRadius: "4px",
             padding: " 0 5px",
-            // backgroundColor: "rgb(250 250 250 )",
-            backgroundColor: "pink",
+            backgroundColor: "rgb(250 250 250 )",
+            // backgroundColor: "pink",
             height: "100%",
           }}
           name="city"

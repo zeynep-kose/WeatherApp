@@ -1,13 +1,15 @@
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
 .App {
   text-align: center;
   /* background-color: rgb(250, 250, 250); */
   background-color: red;
   height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
   /* overflow: hidden; */
 }
 /* .css-etx0v6-MuiAutocomplete-root .MuiFormControl-fullWidth {

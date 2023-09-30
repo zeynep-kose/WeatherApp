@@ -1,8 +1,10 @@
 import { useState } from "react";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
-import NorthIcon from "@mui/icons-material/North";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import UVIndexGaugeChart from "../components/UVIndex";
-
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { styled } from "@mui/styles";
+import { useTheme } from "@mui/material/styles";
 import {
   Box,
   Grid,
@@ -16,6 +18,26 @@ import {
 } from "@mui/material";
 
 function Detail({ detail, city }) {
+  const theme = useTheme();
+  const cardContentHeight = {
+    xs: 150,
+    sm: 200,
+    md: 130,
+    lg: 160,
+    xl: 250,
+  };
+
+  const cardStyles = {
+    [theme.breakpoints.up("xl")]: {
+      width: "87%",
+    },
+  };
+
+  const cardContnt = {
+    [theme.breakpoints.up("xl")]: {
+      rowGap: 2,
+    },
+  };
   if (!detail) return <>Loading...</>;
 
   const status = {
@@ -37,25 +59,57 @@ function Detail({ detail, city }) {
   };
 
   return (
-    <Box sx={{ paddingRight: "40px", width: "100%" }}>
-      <Typography sx={{ margin: 2, textAlign: "start" }}>
+    <Box
+      sx={{
+        width: "100%",
+        height: "100%",
+        [theme.breakpoints.up("xl")]: { marginTop: 2 },
+      }}
+    >
+      <Typography
+        sx={{
+          [theme.breakpoints.up("xl")]: {
+            fontSize: 20,
+            marginTop: 2,
+            marginBottom: 3,
+          },
+          textAlign: "start",
+          margin: "1rem 0",
+        }}
+      >
         <h2>Today Higlight</h2>
       </Typography>
 
       <Grid
         container
-        rowSpacing={1}
-        columnSpacing={{ xs: 1, sm: 2, md: 4 }}
-        columns={{ xs: 4, sm: 8, md: 12 }}
+        rowSpacing={2}
+        columnSpacing={{ xs: 1, sm: 2, md: 4, xl: 5 }}
+        columns={{ xs: 4, sm: 8, md: 12, xl: 12 }}
+        sx={{
+          paddingRight: "2rem",
+          [theme.breakpoints.up("xl")]: {
+            rowGap: 4,
+            paddingRight: "3.5rem",
+          },
+        }}
       >
         <Grid item xs={2} sm={4} md={4}>
-          <Card sx={{ height: 180 }}>
+          <Card
+            sx={{
+              [theme.breakpoints.up("xl")]: {
+                cardStyles,
+                rowSpacing: 3,
+              },
+              height: cardContentHeight,
+            }}
+          >
             <CardContent
               sx={{
                 padding: 0,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "baseline",
+                paddingBottom: "1rem",
               }}
             >
               <CardHeader title="" subheader="UV Index" />
@@ -63,13 +117,22 @@ function Detail({ detail, city }) {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={2} sm={4} md={4}>
-          <Card sx={{ height: 180 }}>
+        <Grid item xs={2} sm={4} md={4} className="cardCont">
+          <Card
+            sx={{
+              [theme.breakpoints.up("xl")]: {
+                cardStyles,
+              },
+              height: cardContentHeight,
+            }}
+            className="card"
+          >
             <CardContent
               sx={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "baseline",
+                [theme.breakpoints.up("xl")]: { rowGap: 2 },
               }}
             >
               <CardHeader
@@ -77,42 +140,72 @@ function Detail({ detail, city }) {
                 subheader="  Wind Status"
                 sx={{ padding: 0 }}
               />
-              <Typography sx={{ fontSize: 40 }}>
-                <b> {detail?.current?.wind_kph}</b> km/h
+
+              <Typography
+                variant="h5"
+                sx={{
+                  [theme.breakpoints.up("xl")]: {
+                    fontSize: "70px",
+                  },
+                  fontSize: "55px",
+                  fontWeight: "bold",
+                  display: "flex",
+                  alignItems: "end",
+                  columnGap: ".5rem",
+                  justifyContent: "center",
+                }}
+              >
+                {detail?.current?.wind_kph}
+                <span
+                  style={{
+                    color: "grey",
+                    fontSize: 25,
+                    paddingBottom: ".5rem",
+                    fontWeight: "lighter",
+                  }}
+                >
+                  km/h
+                </span>
               </Typography>
+
               <Typography
                 sx={{ display: "flex", alignItems: "center", columnGap: 1 }}
               >
-                <Box
-                  sx={{
-                    padding: 1,
-                    backgroundColor: "#eff6ff",
-                    color: "#62a0fd",
-                    borderRadius: 50,
-                  }}
-                >
-                  <AddLocationIcon sx={{}} />
+                <Box sx={{}}>
+                  <AddLocationIcon
+                    sx={{
+                      backgroundColor: "#eff6ff",
+                      color: "#62a0fd",
+                      borderRadius: 50,
+                      padding: 1,
+                    }}
+                  />
                 </Box>
                 {city}
               </Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={2} sm={4} md={4}>
+        <Grid item xs={2} sm={4} md={4} className="cardCont">
           <Card
+            className="card"
             sx={{
               display: "flex",
               flexDirection: "column",
-              minHeight: "50%",
-              height: 180,
+
+              [theme.breakpoints.up("xl")]: {
+                cardStyles,
+              },
+              height: cardContentHeight,
             }}
           >
             <CardContent
               sx={{
+                [theme.breakpoints.up("xl")]: { rowGap: 3 },
                 display: "flex",
                 alignItems: "baseline",
                 flexDirection: "column",
-                rowGap: 1,
+                rowGap: 2.5,
               }}
             >
               <CardHeader
@@ -126,19 +219,17 @@ function Detail({ detail, city }) {
                   display: "flex",
                   justifyContent: "center",
                   columnGap: 1,
+
                   alignItems: "center",
                 }}
               >
-                <Box
-                  sx={{
-                    borderRadius: "50%",
-                    backgroundColor: "#ffc75e",
-                    padding: 1,
-                  }}
-                >
-                  <NorthIcon
+                <Box sx={{}}>
+                  <ArrowUpwardIcon
                     sx={{
                       color: "white",
+                      borderRadius: "50%",
+                      backgroundColor: "#ffc75e",
+                      padding: 1,
                     }}
                   />
                 </Box>
@@ -154,16 +245,13 @@ function Detail({ detail, city }) {
                   alignItems: "center",
                 }}
               >
-                <Box
-                  sx={{
-                    borderRadius: "50%",
-                    backgroundColor: "#ffc75e",
-                    padding: 1,
-                  }}
-                >
-                  <NorthIcon
+                <Box sx={{}}>
+                  <ArrowDownwardIcon
                     sx={{
                       color: "white",
+                      borderRadius: "50%",
+                      backgroundColor: "#ffc75e",
+                      padding: 1,
                     }}
                   />
                 </Box>
@@ -174,16 +262,21 @@ function Detail({ detail, city }) {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={2} sm={4} md={4}>
+        <Grid item xs={2} sm={4} md={4} className="cardCont">
           <Card
+            className="card"
             sx={{
-              height: 180,
               display: "flex",
               flexDirection: "column",
               alignItems: "baseline",
+              [theme.breakpoints.up("xl")]: {
+                cardStyles,
+              },
+              height: cardContentHeight,
             }}
           >
             <CardContent
+              className="cardContent"
               sx={{
                 width: "100%",
                 height: "100% ",
@@ -191,6 +284,10 @@ function Detail({ detail, city }) {
                 flexDirection: "column",
                 alignItems: "baseline",
                 rowGap: 2,
+                [theme.breakpoints.up("xl")]: {
+                  cardStyles,
+                  rowGap: 5,
+                },
               }}
             >
               <CardHeader
@@ -199,28 +296,52 @@ function Detail({ detail, city }) {
                 sx={{ padding: 0, textAlign: "start" }}
               />
               <Typography
+                variant="h5"
                 sx={{
-                  fontSize: "40px",
+                  [theme.breakpoints.up("xl")]: {
+                    fontSize: "70px",
+                  },
+                  fontSize: "55px",
+                  fontWeight: "bold",
                   display: "flex",
                   alignItems: "center",
-
+                  columnGap: ".5rem",
                   justifyContent: "center",
                 }}
               >
-                <b>{detail?.current?.humidity}</b>%
+                {detail?.current?.humidity}
+                <span
+                  style={{
+                    color: "grey",
+                    fontSize: 25,
+                    paddingTop: "1.5rem",
+                    fontWeight: "lighter",
+                  }}
+                >
+                  %
+                </span>
               </Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={2} sm={4} md={4}>
-          <Card sx={{ height: 180 }}>
+        <Grid item xs={2} sm={4} md={4} className="cardCont">
+          <Card
+            sx={{
+              [theme.breakpoints.up("xl")]: {
+                cardStyles,
+              },
+              height: cardContentHeight,
+            }}
+            className="card"
+          >
             <CardContent
               sx={{
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "baseline",
-                rowGap: 0.5,
+                rowGap: 2,
+                [theme.breakpoints.up("xl")]: { rowGap: 5 },
               }}
             >
               <CardHeader
@@ -228,23 +349,46 @@ function Detail({ detail, city }) {
                 subheader="Visiblity"
                 sx={{ padding: 0, textAlign: "start" }}
               />
+
               <Typography
+                variant="h5"
                 sx={{
+                  [theme.breakpoints.up("xl")]: {
+                    fontSize: "70px",
+                  },
+                  fontSize: "55px",
+                  fontWeight: "bold",
                   display: "flex",
                   alignItems: "center",
-                  columnGap: 1,
-                  fontSize: "40px",
+                  columnGap: ".5rem",
                   justifyContent: "center",
-                  height: "100%",
                 }}
               >
-                <b>{detail?.current?.vis_km}</b>km/h
+                {detail?.current?.vis_km}
+                <span
+                  style={{
+                    color: "grey",
+                    fontSize: 25,
+                    paddingTop: "1.5rem",
+                    fontWeight: "lighter",
+                  }}
+                >
+                  km/h
+                </span>
               </Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={2} sm={4} md={4}>
-          <Card sx={{ height: 180 }}>
+        <Grid item xs={2} sm={4} md={4} className="cardCont">
+          <Card
+            sx={{
+              [theme.breakpoints.up("xl")]: {
+                cardStyles,
+              },
+              height: cardContentHeight,
+            }}
+            className="card"
+          >
             <CardContent
               sx={{
                 height: "100%",
@@ -252,6 +396,7 @@ function Detail({ detail, city }) {
                 flexDirection: "column",
                 alignItems: "baseline",
                 rowGap: 0.5,
+                [theme.breakpoints.up("xl")]: { rowGap: 4 },
               }}
             >
               <CardHeader
@@ -261,20 +406,37 @@ function Detail({ detail, city }) {
               />
               <Typography
                 sx={{
-                  fontSize: 40,
+                  [theme.breakpoints.up("xl")]: {
+                    fontSize: "70px",
+                  },
+                  fontSize: 55,
                   textAlign: "start",
                 }}
               >
-                <b>{detail?.current?.air_quality?.co}</b>
+                <b style={{}}>{Math.floor(detail?.current?.air_quality?.co)}</b>
               </Typography>
+
               <Typography
+                variant="h5"
                 sx={{
-                  color: "#8cb8fe",
+                  color: "grey",
                   textAlign: "start",
-                  fontWeight: "bold",
+                  fontSize: 20,
+                  display: "flex",
+                  columnGap: 0.5,
                 }}
               >
-                Status:{getEpa(epaIndex)}
+                Status:
+                <span
+                  style={{
+                    color: "#8cb8fe",
+                    textAlign: "start",
+                    fontWeight: "bold",
+                    paddingBottom: 2,
+                  }}
+                >
+                  {getEpa(epaIndex)}
+                </span>
               </Typography>
             </CardContent>
           </Card>
