@@ -46,10 +46,16 @@ function WeatherApp() {
         flexDirection: "row",
         columnGap: 4,
         padding: 0,
-        height: "100%",
+        height: "100vh",
         width: "100%",
         [theme.breakpoints.up("xl")]: {
           columnGap: 8,
+        },
+        [theme.breakpoints.down("md")]: {
+          display: "flex",
+          flexDirection: "column",
+          rowGap: 2,
+          columnGap: 0,
         },
       }}
     >

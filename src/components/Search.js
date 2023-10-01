@@ -3,45 +3,69 @@ import CitiesData from "../mocks/Cities";
 import { Autocomplete, Stack, Box } from "@mui/material";
 import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@mui/icons-material/Search";
+import { useTheme } from "@mui/material/styles";
 
 function Search({ city, setCity }) {
+  const theme = useTheme();
   return (
-    <Stack sx={{ margin: "0 auto", height: 30, width: "300px" }}>
+    <Stack
+      sx={{
+        [theme.breakpoints.down("md")]: {
+          width: "100%",
+          padding: "1rem 0",
+        },
+        margin: "0 auto",
+        height: 30,
+        padding: "0 10px",
+        [theme.breakpoints.up("sm")]: {
+          width: "100%",
+        },
+      }}
+    >
       <Box
         sx={{
-          width: "100%",
+          width: "300px",
+          [theme.breakpoints.up("sm")]: {},
           display: "flex",
           alignItems: "center",
-
-          paddingTop: "16px",
+          paddingTop: "1rem",
+          [theme.breakpoints.down("md")]: {
+            padding: 0,
+            margin: "1rem auto",
+          },
         }}
       >
         <Autocomplete
           disablePortal
           id="combo-box-demo"
+          s
           options={CitiesData}
           value={city}
           sx={{
-            width: "210px",
+            width: "85%",
             borderBottom: "none",
             margin: "0 auto",
             borderRadius: "4px",
-            padding: " 0 5px",
+            padding: "3px 5px",
             backgroundColor: "rgb(250 250 250 )",
-            // backgroundColor: "pink",
             height: "100%",
+            [theme.breakpoints.down("sm")]: {
+              background: "green",
+              width: "100%",
+              margin: "0 auto",
+            },
+            [theme.breakpoints.down("md")]: {
+              width: "100%",
+              padding: "0 5px",
+              backgroundColor: "orange",
+            },
           }}
           name="city"
           onChange={(event, value) => {
             setCity(value);
           }}
           renderInput={(params) => (
-            <TextField
-              {...params}
-              label=""
-              placeholder="Search Place"
-              style={{ color: "da" }}
-            />
+            <TextField {...params} label="" placeholder="Search Place" />
           )}
         />
       </Box>

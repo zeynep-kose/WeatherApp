@@ -20,11 +20,11 @@ import {
 function Detail({ detail, city }) {
   const theme = useTheme();
   const cardContentHeight = {
-    xs: 150,
+    xs: 170,
     sm: 200,
-    md: 130,
-    lg: 160,
-    xl: 250,
+    md: 210,
+    lg: 230,
+    xl: 260,
   };
 
   const cardStyles = {
@@ -61,9 +61,10 @@ function Detail({ detail, city }) {
   return (
     <Box
       sx={{
+        [theme.breakpoints.up("xl")]: { marginTop: 2 },
+
         width: "100%",
         height: "100%",
-        [theme.breakpoints.up("xl")]: { marginTop: 2 },
       }}
     >
       <Typography
@@ -74,7 +75,13 @@ function Detail({ detail, city }) {
             marginBottom: 3,
           },
           textAlign: "start",
-          margin: "1rem 0",
+          margin: "1.5rem 0",
+          [theme.breakpoints.down("md")]: {
+            width: "100%",
+          },
+          [theme.breakpoints.down("sm")]: {
+            width: "100%",
+          },
         }}
       >
         <h2>Today Higlight</h2>
@@ -82,18 +89,28 @@ function Detail({ detail, city }) {
 
       <Grid
         container
-        rowSpacing={2}
-        columnSpacing={{ xs: 1, sm: 2, md: 4, xl: 5 }}
-        columns={{ xs: 4, sm: 8, md: 12, xl: 12 }}
+        rowSpacing={4}
+        columnSpacing={{ xs: 1, sm: 2, md: 4, lg: 3, xl: 5 }}
+        columns={{ xs: 4, sm: 8, md: 12, lg: 12, xl: 12 }}
         sx={{
+          width: "100%",
           paddingRight: "2rem",
           [theme.breakpoints.up("xl")]: {
             rowGap: 4,
             paddingRight: "3.5rem",
           },
+          [theme.breakpoints.down("md")]: {
+            // rowGap: 4,
+            padding: "0 1rem",
+          },
+          [theme.breakpoints.down("sm")]: {
+            width: "100%",
+            height: "100%",
+            rowGap: 0,
+          },
         }}
       >
-        <Grid item xs={2} sm={4} md={4}>
+        <Grid item xs={2} sm={4} md={4} lg={4}>
           <Card
             sx={{
               [theme.breakpoints.up("xl")]: {
@@ -101,6 +118,10 @@ function Detail({ detail, city }) {
                 rowSpacing: 3,
               },
               height: cardContentHeight,
+              [theme.breakpoints.down("md")]: {
+                cardStyles,
+                rowSpacing: 2,
+              },
             }}
           >
             <CardContent
@@ -133,6 +154,7 @@ function Detail({ detail, city }) {
                 flexDirection: "column",
                 alignItems: "baseline",
                 [theme.breakpoints.up("xl")]: { rowGap: 2 },
+                [theme.breakpoints.down("lg")]: { rowGap: 2 },
               }}
             >
               <CardHeader
@@ -147,6 +169,7 @@ function Detail({ detail, city }) {
                   [theme.breakpoints.up("xl")]: {
                     fontSize: "70px",
                   },
+
                   fontSize: "55px",
                   fontWeight: "bold",
                   display: "flex",
@@ -169,7 +192,17 @@ function Detail({ detail, city }) {
               </Typography>
 
               <Typography
-                sx={{ display: "flex", alignItems: "center", columnGap: 1 }}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  columnGap: 1,
+                  [theme.breakpoints.up("xl")]: {
+                    fontSize: "1.5rem",
+                  },
+                  [theme.breakpoints.down("lg")]: {
+                    fontSize: "1rem",
+                  },
+                }}
               >
                 <Box sx={{}}>
                   <AddLocationIcon
@@ -178,10 +211,17 @@ function Detail({ detail, city }) {
                       color: "#62a0fd",
                       borderRadius: 50,
                       padding: 1,
+                      [theme.breakpoints.up("xl")]: {
+                        width: "2.5rem",
+                        height: "2.5rem",
+                      },
+                      [theme.breakpoints.down("lg")]: {
+                        fontSize: "2rem",
+                      },
                     }}
                   />
                 </Box>
-                {city}
+                {city}, {detail?.location?.country}
               </Typography>
             </CardContent>
           </Card>
@@ -201,11 +241,11 @@ function Detail({ detail, city }) {
           >
             <CardContent
               sx={{
-                [theme.breakpoints.up("xl")]: { rowGap: 3 },
+                [theme.breakpoints.up("xl")]: { rowGap: 2 },
+                [theme.breakpoints.down("lg")]: { rowGap: "1.5rem" },
                 display: "flex",
                 alignItems: "baseline",
                 flexDirection: "column",
-                rowGap: 2.5,
               }}
             >
               <CardHeader
@@ -230,10 +270,22 @@ function Detail({ detail, city }) {
                       borderRadius: "50%",
                       backgroundColor: "#ffc75e",
                       padding: 1,
+                      [theme.breakpoints.up("xl")]: {
+                        width: "2.5rem",
+                        height: "2.5rem",
+                      },
+                      [theme.breakpoints.down("lg")]: {
+                        width: "2rem",
+                        height: "2rem",
+                      },
                     }}
                   />
                 </Box>
-                <Typography>
+                <Typography
+                  sx={{
+                    [theme.breakpoints.up("xl")]: { fontSize: "3rem" },
+                  }}
+                >
                   <h4> {detail?.forecast?.forecastday[0]?.astro?.sunrise}</h4>
                 </Typography>
               </Box>
@@ -252,10 +304,22 @@ function Detail({ detail, city }) {
                       borderRadius: "50%",
                       backgroundColor: "#ffc75e",
                       padding: 1,
+                      [theme.breakpoints.up("xl")]: {
+                        width: "2.5rem",
+                        height: "2.5rem",
+                      },
+                      [theme.breakpoints.down("lg")]: {
+                        width: "2rem",
+                        height: "2rem",
+                      },
                     }}
                   />
                 </Box>
-                <Typography>
+                <Typography
+                  sx={{
+                    [theme.breakpoints.up("xl")]: { fontSize: "3rem" },
+                  }}
+                >
                   <h4> {detail.forecast.forecastday[0].astro.sunset}</h4>
                 </Typography>
               </Box>
@@ -397,6 +461,9 @@ function Detail({ detail, city }) {
                 alignItems: "baseline",
                 rowGap: 0.5,
                 [theme.breakpoints.up("xl")]: { rowGap: 4 },
+                [theme.breakpoints.down("sm")]: {
+                  rowGap: 0,
+                },
               }}
             >
               <CardHeader

@@ -5,11 +5,11 @@
 }
 .App {
   text-align: center;
-  /* background-color: rgb(250, 250, 250); */
-  background-color: red;
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
+  background-color: rgb(250, 250, 250);
+  /* background-color: red; */
+  height: 100%;
+  width: 100%;
+  /* overflow-x: hidden; */
   /* overflow: hidden; */
 }
 /* .css-etx0v6-MuiAutocomplete-root .MuiFormControl-fullWidth {
@@ -32,7 +32,7 @@
   padding: 0;
 }
 
-.MuiAutocomplete-hasPopupIcon.css-yq1bj6-MuiAutocomplete-root
+/* .MuiAutocomplete-hasPopupIcon.css-yq1bj6-MuiAutocomplete-root
   .MuiAutocomplete-inputRoot,
 .MuiAutocomplete-hasClearIcon.css-yq1bj6-MuiAutocomplete-root
   .MuiAutocomplete-inputRoot
@@ -41,8 +41,7 @@
   .MuiInput-input {
   width: 70%;
   margin: 0 auto;
-  background-color: pink;
-}
+} */
 .MuiAutocomplete-hasPopupIcon.css-yq1bj6-MuiAutocomplete-root
   .MuiAutocomplete-inputRoot,
 .MuiAutocomplete-hasClearIcon.css-yq1bj6-MuiAutocomplete-root
@@ -53,4 +52,13 @@
 
 .css-15alm28-MuiStack-root {
   height: 100%;
+}
+.MuiAutocomplete-hasPopupIcon.css-1r3n88j-MuiAutocomplete-root
+  .MuiAutocomplete-inputRoot,
+.MuiAutocomplete-hasClearIcon.css-1r3n88j-MuiAutocomplete-root
+  .MuiAutocomplete-inputRoot {
+  padding: 0;
+  width: 87%;
+  border-radius: 4px;
+  margin: 0 auto;
 }

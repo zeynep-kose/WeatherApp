@@ -31,7 +31,7 @@ const CitiesData = [
   "Hakkari",
   "Hatay",
   "Isparta",
-  "İçel (Mersin)",
+  "Mersin",
   "İstanbul",
   "İzmir",
   "Kastamonu",
