@@ -10,13 +10,12 @@ import {
   CardMedia,
   Stack,
 } from "@mui/material";
+
 import { useTheme } from "@mui/material/styles";
 
 function Summary({ weather, city, setCity }) {
   const theme = useTheme();
   if (!weather) return <>Loading...</>;
-  // const temp= weather.main.temp
-  // const temp= Object.keys(weather).map((item)=>{return(item.main.temp)})
   console.log(weather);
   const daysOfWeek = (dateObj) => {
     const pullDay = [
@@ -47,6 +46,7 @@ function Summary({ weather, city, setCity }) {
         flexDirection: "column",
         width: "100%",
         height: "100%",
+        paddingTop: 0,
         [theme.breakpoints.up("xl")]: {
           paddingTop: 3,
         },
@@ -70,7 +70,6 @@ function Summary({ weather, city, setCity }) {
             alignItems: "baseline",
           },
           flexDirection: "column",
-          [theme.breakpoints.down("sm")]: {},
         }}
       >
         <Box
@@ -83,13 +82,17 @@ function Summary({ weather, city, setCity }) {
               height: 180,
             },
             [theme.breakpoints.up("lg")]: {
-              width: "70%",
-              margin: "4rem auto",
-              height: 180,
+              width: "40%",
+              margin: "2rem auto 0 auto",
+              height: 140,
             },
             [theme.breakpoints.down("md")]: {
-              width: "35%",
+              width: "30%",
               margin: "1rem auto ",
+              height: 180,
+            },
+            [theme.breakpoints.down("sm")]: {
+              width: "39%",
               height: 180,
             },
           }}
@@ -113,16 +116,16 @@ function Summary({ weather, city, setCity }) {
               marginTop: 2,
               rowGap: 3,
             },
-            [theme.breakpoints.up("lg")]: {
-              marginTop: 2,
-              rowGap: 3,
-            },
+
             [theme.breakpoints.down("md")]: {
-              paddingTop: "3rem",
+              marginTop: "3rem",
+              paddingTop: "2rem",
               rowGap: 2,
               alignItems: "center",
             },
             [theme.breakpoints.down("sm")]: {
+              marginTop: "1rem",
+              paddingTop: "1rem",
               rowGap: " 1rem",
               paddingLeft: 0,
             },
@@ -150,8 +153,9 @@ function Summary({ weather, city, setCity }) {
               display: "flex",
               alignItems: "center",
               columnGap: 1,
-              boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-              padding: "0 5px 10px 5px",
+              borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+              padding: "0 .2rem .2rem .2rem",
+              marginBottom: "1rem",
               [theme.breakpoints.down("sm")]: {
                 justifyContent: "center",
               },
@@ -164,7 +168,6 @@ function Summary({ weather, city, setCity }) {
             sx={{
               display: "flex",
               alignItems: "center",
-              marginTop: "1rem",
               columnGap: 0.5,
             }}
           >
@@ -190,12 +193,8 @@ function Summary({ weather, city, setCity }) {
           [theme.breakpoints.up("xl")]: {
             marginTop: 5,
           },
-          [theme.breakpoints.up("lg")]: {
-            marginTop: 5,
-          },
-          // backgroundColor: "orange",
+
           borderRadius: ".5rem",
-          // height: "150px",
           marginTop: "1rem",
         }}
       >
@@ -234,7 +233,7 @@ function Summary({ weather, city, setCity }) {
             src="https://picsum.photos/id/11/260/115"
             alt="saane"
             style={{
-              borderRadius: "10px",
+              borderRadius: ".5rem",
               zIndex: "0",
               width: "100%",
               height: "100%",

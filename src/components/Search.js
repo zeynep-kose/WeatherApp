@@ -50,14 +50,12 @@ function Search({ city, setCity }) {
             backgroundColor: "rgb(250 250 250 )",
             height: "100%",
             [theme.breakpoints.down("sm")]: {
-              background: "green",
               width: "100%",
               margin: "0 auto",
             },
             [theme.breakpoints.down("md")]: {
               width: "100%",
               padding: "0 5px",
-              backgroundColor: "orange",
             },
           }}
           name="city"

@@ -68,7 +68,7 @@ function WeatherApp() {
         }}
       >
         {/* component */}
-        {/* <Search city={city} setCity={setCity} /> */}
+
         <Summary weather={weather?.current} city={city} setCity={setCity} />
       </Box>
       <Box

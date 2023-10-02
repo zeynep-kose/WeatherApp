@@ -20,12 +20,12 @@ function TopCard({ forecast }) {
     <Grid
       container
       spacing={0}
-      columnSpacing={{ xs: 1, sm: 1, md: 0 }}
-      columns={{ xs: 4, sm: 8, md: 12, lg: 12, xl: 12 }}
-      columnGap={{ xs: 4, sm: 0, md: 0, lg: 12, xl: 12 }}
+      columnSpacing={{ xs: 0, sm: 1, md: 0 }}
+      columns={{ xs: 12, sm: 8, md: 12, lg: 12, xl: 12 }}
+      columnGap={{ xs: 0, sm: 0, md: 0, lg: 12, xl: 12 }}
       sx={{
-        columnGap: "25px",
-        paddingTop: "10px",
+        columnGap: "1.5rem",
+        paddingTop: ".6rem",
         width: "100%",
         paddingRight: "2rem",
         flexWrap: "nowrap",
@@ -46,15 +46,12 @@ function TopCard({ forecast }) {
           width: "100%",
           justifyContent: "space-between",
           padding: 0,
+          flexDirection: "row",
+          flexWrap: "wrap",
+
+          rowGap: 1,
         },
-        // [theme.breakpoints.up("xs")]: {
-        //   width: "100%",
-        //   justifyContent: "space-between",
-        //   padding: 0,
-        //   flexWrap: "wrap",
-        // },
       }}
-      className="topCard__cont"
     >
       {forecast.map((item, index) => (
         <Box
@@ -66,7 +63,6 @@ function TopCard({ forecast }) {
             className="topCard"
             sx={{
               padding: 0,
-
               backgroundColor: "white",
               display: "flex",
               flexDirection: "column",
@@ -82,19 +78,16 @@ function TopCard({ forecast }) {
                 padding: 0,
                 width: "95%",
                 margin: "0 auto",
-                // height: 170,
               },
               [theme.breakpoints.down("sm")]: {
                 width: "80%",
-                // height: 110,
                 padding: 0,
                 justifyContent: "",
               },
-              // [theme.breakpoints.down("xs")]: {
-              //   // height: 110,
-              //   padding: 0,
-              //   justifyContent: "",
-              // },
+              [theme.breakpoints.up("xs")]: {
+                padding: 0,
+                justifyContent: "",
+              },
             }}
           >
             <CardContent
@@ -104,10 +97,11 @@ function TopCard({ forecast }) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                [theme.breakpoints.down("xs")]: {
+                  padding: 0,
+                },
                 [theme.breakpoints.down("sm")]: {
                   padding: 0,
-                  // width: "80%",
-                  // height: 170,
                 },
               }}
               className="topCard__content"

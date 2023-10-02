@@ -23,8 +23,8 @@ function Detail({ detail, city }) {
     xs: 170,
     sm: 200,
     md: 210,
-    lg: 230,
-    xl: 260,
+    lg: 170,
+    xl: 250,
   };
 
   const cardStyles = {
@@ -155,6 +155,7 @@ function Detail({ detail, city }) {
                 alignItems: "baseline",
                 [theme.breakpoints.up("xl")]: { rowGap: 2 },
                 [theme.breakpoints.down("lg")]: { rowGap: 2 },
+                [theme.breakpoints.down("sm")]: { rowGap: 0 },
               }}
             >
               <CardHeader
@@ -202,6 +203,9 @@ function Detail({ detail, city }) {
                   [theme.breakpoints.down("lg")]: {
                     fontSize: "1rem",
                   },
+                  [theme.breakpoints.down("sm")]: {
+                    fontSize: ".8rem",
+                  },
                 }}
               >
                 <Box sx={{}}>
@@ -215,8 +219,14 @@ function Detail({ detail, city }) {
                         width: "2.5rem",
                         height: "2.5rem",
                       },
-                      [theme.breakpoints.down("lg")]: {
+                      [theme.breakpoints.up("lg")]: {
                         fontSize: "2rem",
+                        width: "2.5rem",
+                        height: "2.5rem",
+                      },
+                      [theme.breakpoints.up("xs")]: {
+                        width: "2.5rem",
+                        height: "2.5rem",
                       },
                     }}
                   />
@@ -242,7 +252,10 @@ function Detail({ detail, city }) {
             <CardContent
               sx={{
                 [theme.breakpoints.up("xl")]: { rowGap: 2 },
-                [theme.breakpoints.down("lg")]: { rowGap: "1.5rem" },
+                [theme.breakpoints.up("lg")]: { rowGap: "1rem" },
+                [theme.breakpoints.up("sm")]: { rowGap: "1rem" },
+                [theme.breakpoints.up("md")]: { rowGap: "1.5rem" },
+
                 display: "flex",
                 alignItems: "baseline",
                 flexDirection: "column",
@@ -274,7 +287,19 @@ function Detail({ detail, city }) {
                         width: "2.5rem",
                         height: "2.5rem",
                       },
-                      [theme.breakpoints.down("lg")]: {
+                      [theme.breakpoints.up("lg")]: {
+                        width: "2rem",
+                        height: "2rem",
+                      },
+                      [theme.breakpoints.up("md")]: {
+                        width: "2.5rem",
+                        height: "2.5rem",
+                      },
+                      [theme.breakpoints.up("sm")]: {
+                        width: "2rem",
+                        height: "2rem",
+                      },
+                      [theme.breakpoints.up("xs")]: {
                         width: "2rem",
                         height: "2rem",
                       },
@@ -308,7 +333,19 @@ function Detail({ detail, city }) {
                         width: "2.5rem",
                         height: "2.5rem",
                       },
-                      [theme.breakpoints.down("lg")]: {
+                      [theme.breakpoints.up("lg")]: {
+                        width: "2rem",
+                        height: "2rem",
+                      },
+                      [theme.breakpoints.up("md")]: {
+                        width: "2.5rem",
+                        height: "2.5rem",
+                      },
+                      [theme.breakpoints.up("sm")]: {
+                        width: "2rem",
+                        height: "2rem",
+                      },
+                      [theme.breakpoints.up("xs")]: {
                         width: "2rem",
                         height: "2rem",
                       },
@@ -363,7 +400,7 @@ function Detail({ detail, city }) {
                 variant="h5"
                 sx={{
                   [theme.breakpoints.up("xl")]: {
-                    fontSize: "70px",
+                    fontSize: "4.5rem",
                   },
                   fontSize: "55px",
                   fontWeight: "bold",
@@ -491,6 +528,9 @@ function Detail({ detail, city }) {
                   fontSize: 20,
                   display: "flex",
                   columnGap: 0.5,
+                  [theme.breakpoints.down("sm")]: {
+                    fontSize: "1.1rem",
+                  },
                 }}
               >
                 Status:
